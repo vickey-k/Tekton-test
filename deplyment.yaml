@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tekton-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tekton-demo
+  template:
+    metadata:
+      labels:
+        app: tekton-demo
+    spec:
+      containers:
+      - name: app
+        image: docker.io/vickey876/ubuntu:2.0.0
+        ports:
+        - containerPort: 8080
